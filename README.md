@@ -13,9 +13,7 @@
 - 生成数据库文件: 首先：python manage.py makemigrations 其次：python manage.py migrate
 - 生成管理员账号：python manage.py createsuperuser
 - 生成搜索缓存：python manage.py rebulid_index
-- 配置uwgsi.ini文件
-- 配置niginx文件
-- 让项目跑起来：uwsgi uwsgi
+- 让项目跑起来：gunicorn+nginx
 ## 自定义blog内容：
 - bolg的模板放在根目录的templates/
 - 修改templates/base.html 就能粗略的自定义bolg的样式
