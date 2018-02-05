@@ -5,7 +5,6 @@ from django.urls import reverse
 import  markdown
 from django.utils.html import strip_tags
 
-# from ditor.models import UEditorField
 from ditor.models import UEditorField
 # Create your models here.
 
@@ -36,8 +35,6 @@ class Post(models.Model):
         ('published','已发布'),
         )
     title = models.CharField(max_length=70,verbose_name='文章标题')
-    # body = models.TextField(verbose_name='文章正文')
-    # body = UEditorField('内容',height=300, width=800, default='', blank=True,imagePath="news", toolbars='full', filePath='files')
     body = UEditorField('内容', height=300, width=800,max_length=1024000000000,
                            default=u'', blank=True, imagePath="images/",
                            toolbars='besttome', filePath='files/')
