@@ -41,13 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'ditor',
     'comments',
     'haystack',
     'xadmin',#xadmin后台app
     'crispy_forms',#xadmin后台app依赖
     'reversion',#xadmin后台app依赖
     'pure_pagination',
-
 ]
 
 MIDDLEWARE = [
@@ -129,6 +129,9 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
+MEDIA_URL='/upload/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload/')
+
 
 STATIC_URL = '/static/'
 

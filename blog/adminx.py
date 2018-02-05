@@ -13,6 +13,7 @@ class PostAdmin(object):
 
     list_filter = ['title','create_time','modified_time','category','author']
     model_icon = 'fa fa-address-card'
+    style_fields = {"body": "ueditor"}
 
 
 class BaseSettings(object):

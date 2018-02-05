@@ -28,5 +28,4 @@ class LogAdmin(object):
     list_filter = ['user', 'action_time']
     search_fields = ['ip_addr', 'message']
     model_icon = 'fa fa-cog'
-
 xadmin.site.register(Log, LogAdmin)

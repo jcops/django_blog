@@ -4,6 +4,9 @@ from django.utils.six import python_2_unicode_compatible
 from django.urls import reverse
 import  markdown
 from django.utils.html import strip_tags
+
+# from ditor.models import UEditorField
+from ditor.models import UEditorField
 # Create your models here.
 
 
@@ -28,8 +31,16 @@ class Tag(models.Model):
 @python_2_unicode_compatible
 class Post(models.Model):
     """文章"""
+    STATUS_CHOICES = (
+        ('draft','草稿'),
+        ('published','已发布'),
+        )
     title = models.CharField(max_length=70,verbose_name='文章标题')
-    body = models.TextField(verbose_name='文章正文')
+    # body = models.TextField(verbose_name='文章正文')
+    # body = UEditorField('内容',height=300, width=800, default='', blank=True,imagePath="news", toolbars='full', filePath='files')
+    body = UEditorField('内容', height=300, width=800,max_length=1024000000000,
+                           default=u'', blank=True, imagePath="images/",
+                           toolbars='besttome', filePath='files/')
     create_time = models.DateTimeField(verbose_name='文章创建时间')
     modified_time = models.DateTimeField(verbose_name='文章最后修改时间')
     excerpt = models.CharField(max_length=200,blank=True,verbose_name='文章摘要')

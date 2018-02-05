@@ -1,0 +1,18 @@
+kubectl -s 41.188.43.63:8080 get pods --all-namespaces
+
+
+kubectl -s xxxx:8080 exec -ti podname /bin/bash --namespace=USER-PROD
+
+
+
+
+1.先把镜像包解压出来
+2.执行docker load --input xxxx.tar #镜像包
+
+
+
+
+3.给镜像打tag
+
+
+4.docker push

@@ -17,6 +17,7 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from blog.feeds import AllPostRssFeed
 import xadmin
+import  ditor
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -27,4 +28,10 @@ urlpatterns = [
     url(r'',include('comments.urls')),
     url(r'^all/rss/$',AllPostRssFeed(),name='rss'),
     url(r'^search/', include('haystack.urls')),
+    url(r'^ueditor/', include('ditor.urls'))
 ]
+from django.conf import settings
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
